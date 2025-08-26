@@ -1,0 +1,68 @@
+body {
+    background-color: black;
+    margin: 0;
+    padding: 0;
+}
+
+#container {
+    background-color: teal;
+    margin: 0 auto;
+    padding: 30px;
+    max-width: max(60vw, 700px);
+    box-sizing: border-box;
+}
+
+#gallery {
+    display: flex;
+    flex-flow: row nowrap;
+    width: 100%;
+    overflow: auto;
+    scroll-snap-type: x mandatory;
+    scroll-snap-stop: always;
+    gap: 10px;
+    padding-bottom: 10px;
+}
+
+@supports (scrollbar-color: green darkgreen) {
+    #gallery {
+        scrollbar-color: green darkgreen;
+        scrollbar-width: thin;
+      
+    }
+}
+
+#gallery::-webkit-scrollbar {
+    height: 8px;
+}
+
+#gallery::-webkit-scrollbar-thumb {
+    background: green;
+    border-radius: 4px;
+}
+
+#gallery::-webkit-scrollbar-track {
+    background: darkgreen;
+    border-radius: 4px;
+}
+
+figure {
+    scroll-snap-align: center;
+    flex: 0 0 auto;
+    width: clamp(200px, 80vw, 800px);
+    margin: 0;
+    text-align: center;
+}
+
+figure img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+}
+
+figure:first-of-type,
+figure:last-of-type {
+    width: clamp(50px, 10vw, 200px);
+    scroll-snap-align: none;
+    flex-shrink: 0;
+}
